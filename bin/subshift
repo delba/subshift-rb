@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'subshift'
+
+Subshift::Runner.run!(ARGV)
