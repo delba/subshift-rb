@@ -9,7 +9,7 @@ module Subshift
     end
 
     def initialize(argv)
-      @options = Subshift::Options.new(argv)
+      @options = Options.new(argv)
     end
 
     def run
