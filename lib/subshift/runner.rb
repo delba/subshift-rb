@@ -14,8 +14,20 @@ module Subshift
 
     def run
       File.copylines(source, destination) do |line|
-        line.timeline? ? line.shift_times(delay) : line
+        timeline?(line) ? shift_times(line) : line
       end
+    end
+
+  private
+
+    def shift_times(line)
+      line.gsub(Time::FORMAT) do |time|
+        Time.parse(time) + delay
+      end
+    end
+
+    def timeline?(line)
+      /-->/ === line
     end
   end
 end
