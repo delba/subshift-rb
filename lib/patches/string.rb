@@ -5,8 +5,7 @@ class String
 
   def shift_times(delay)
     gsub(TIME) do |time|
-      new_time = Time.parse(time) + delay
-      new_time.strftime '%H:%M:%S,%3N'
+      Subshift::Time.parse(time) + delay
     end
   end
 
