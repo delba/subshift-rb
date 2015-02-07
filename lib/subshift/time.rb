@@ -20,7 +20,6 @@ module Subshift
       instance
     end
 
-
     def +(seconds)
       tap do |t|
         t.total_ms += seconds * 1000
