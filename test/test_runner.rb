@@ -18,14 +18,16 @@ class RunnerTest < Minitest::Test
 
   def test_run
     regexp = String::TIME
+
     assert_equal '00:00:42,407', regexp.match(File.read('sample.srt'))[0]
-    Subshift::Runner.run!(['sample.srt', '3'])
+    Subshift::Runner.run(['sample.srt', '3'])
     assert_equal '00:00:45,407', regexp.match(File.read('sample.srt'))[0]
 
     # Reset
-    runner = Subshift::Runner.run!(['sample.srt', '-3'])
+    Subshift::Runner.run(['sample.srt', '-3'])
 
-    runner = Subshift::Runner.run!(['sample.srt', '3', '-d', 'sample_delayed.srt'])
+    assert_equal '00:00:42,407', regexp.match(File.read('sample.srt'))[0]
+    Subshift::Runner.run(['sample.srt', '3', '-d', 'sample_delayed.srt'])
     assert_equal '00:00:45,407', regexp.match(File.read('sample_delayed.srt'))[0]
   end
 end

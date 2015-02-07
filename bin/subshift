@@ -2,4 +2,4 @@
 
 require 'subshift'
 
-Subshift::Runner.run!(ARGV)
+Subshift::Runner.run(ARGV)
