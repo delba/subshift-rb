@@ -7,7 +7,7 @@ module Extensions
     end
 
     def delegate(*methods, to:)
-      public_send :def_delegators, to, *methods
+      super methods => to
     end
   end
 end
