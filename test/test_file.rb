@@ -19,7 +19,7 @@ class TestFile < Minitest::Test
 
   def test_copylines
     File.copylines 'file', 'copy' do |line|
-      /1/ === line ? "First line\n": line
+      "First line\n" if /1/ === line
     end
 
     assert_equal "First line\n2\n3\n", File.read('copy')
@@ -27,7 +27,7 @@ class TestFile < Minitest::Test
 
   def test_copylines_on_the_same_file
     File.copylines 'file', 'file' do |line|
-      /1/ === line ? "First line\n": line
+      "First line\n" if /1/ === line
     end
 
     assert_equal "First line\n2\n3\n", File.read('file')

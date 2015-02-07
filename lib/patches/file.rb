@@ -6,7 +6,10 @@ class File
 
     begin
       readlines(src).each do |line|
-        line = yield(line) if block_given?
+        if block_given?
+          new_line = yield(line)
+          line = new_line unless new_line.nil?
+        end
 
         tempfile.write line
       end

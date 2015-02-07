@@ -14,7 +14,7 @@ module Subshift
 
     def run
       File.copylines(source, destination) do |line|
-        timeline?(line) ? shift_times(line) : line
+        shift_times(line) if timeline?(line)
       end
     end
 
