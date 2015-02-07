@@ -1,7 +1,6 @@
-require 'patches/module'
-require 'patches/encoding'
-require 'patches/file'
-require 'patches/string'
+require 'extensions/module'
+require 'extensions/encoding'
+require 'extensions/file'
 
 require 'subshift/runner'
 require 'subshift/time'
