@@ -6,7 +6,7 @@ module Extensions
       tempfile = Tempfile.new(dst)
 
       begin
-        readlines(src).each do |line|
+        open(src).each_line do |line|
           if block_given?
             new_line = yield(line)
             line = new_line unless new_line.nil?
